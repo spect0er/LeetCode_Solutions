@@ -28,9 +28,7 @@ public:
 
     }
     void flatten(TreeNode* root){
-        TreeNode* curr = NULL;
         TreeNode* prev = NULL;
         preorder(root,prev);
-        root = prev;
     }
 };
