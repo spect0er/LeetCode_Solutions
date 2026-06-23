@@ -1,12 +1,18 @@
 class Solution {
 public:
     int arrangeCoins(int n) {
-        int row = 1;
-        int completeRows = 0;
-        while(n > 0){
-            n -= row;
-            row++;
-            if(n >= 0) completeRows++;
+        int l = 1;
+        int r = n;
+        int completeRows = l;
+        while(l <= r){
+            long long mid = r - (r - l) / 2;
+            long long numOfCoins = (mid*(mid+1))/2;
+            if(numOfCoins <= n){
+                completeRows = mid;
+                l = mid + 1;
+            }else{
+                r = mid - 1;
+            }
         }
         return completeRows;
     }
